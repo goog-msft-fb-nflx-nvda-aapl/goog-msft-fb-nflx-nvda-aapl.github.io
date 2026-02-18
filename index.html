@@ -270,6 +270,26 @@
   .badge-ntu  { background: rgba(160,120,32,0.10);  color: var(--accent-gold); }
   .badge-cert { background: rgba(15,168,142,0.08);  color: var(--accent-teal); }
 
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 2px 7px;
+    border-radius: 100px;
+    background: rgba(160,120,32,0.10);
+    color: var(--accent-gold);
+    border: 1px solid rgba(160,120,32,0.25);
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-left: 6px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .rank-badge:hover { background: rgba(160,120,32,0.18); }
+
   /* Status pill */
   .status-pill {
     font-family: 'DM Mono', monospace;
@@ -382,7 +402,7 @@
     <div class="header-eyebrow" data-i18n="eyebrow">Academic Roadmap</div>
     <h1>
       <span class="title-solid">☁️AWS<span class="title-sub">(Amazon EMR)</span></span><span class="title-sep"> ×</span>
-      <span class="title-solid">☸️K8s</span><span class="title-faded"> × 🔍Elasticsearch × 💻MS-CS × 🧠MS-AI × 🗣️MS-CL</span>
+      <span class="title-solid">☸️Kubernetes</span><span class="title-faded"> × 🔍Elasticsearch × 💻MS-CS × 🧠MS-AI × 🗣️MS-CL</span>
     </h1>
     <div class="header-sub">
       <span data-i18n="sub1">5 Institutions · 19 Courses · 1 Certification</span>
@@ -484,7 +504,9 @@
       <div class="program-header">
         <div>
           <div class="program-title" data-i18n="ut-title">Master of Science in Artificial Intelligence</div>
-          <div class="program-loc">University of Texas · Austin, TX</div>
+          <div class="program-loc">University of Texas · Austin, TX
+            <a class="rank-badge" href="https://www.usnews.com/best-graduate-schools/top-science-schools/artificial-intelligence-rankings" target="_blank" title="US News AI Graduate School Rankings">★ US News AI #10</a>
+          </div>
         </div>
         <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;">
           <div class="status-pill" id="status-ut"></div>
@@ -576,7 +598,9 @@
       <div class="program-header">
         <div>
           <div class="program-title" data-i18n="uw-title">Master of Science in Computational Linguistics</div>
-          <div class="program-loc">University of Washington · Seattle, WA &nbsp;·&nbsp;
+          <div class="program-loc">University of Washington · Seattle, WA
+            <a class="rank-badge" href="https://www.usnews.com/best-graduate-schools/top-science-schools/artificial-intelligence-rankings" target="_blank" title="US News AI Graduate School Rankings">★ US News AI #8</a>
+            &nbsp;·&nbsp;
             <em style="color:var(--accent-rose);font-style:normal"><span data-i18n="uw-app">Applied: 03.01 · Decision: 04.01</span></em>
           </div>
         </div>
@@ -600,7 +624,9 @@
       <div class="program-header">
         <div>
           <div class="program-title" data-i18n="mit-title">MicroMasters Program in Statistics and Data Science</div>
-          <div class="program-loc">MIT · Cambridge, MA &nbsp;·&nbsp;
+          <div class="program-loc">MIT · Cambridge, MA
+            <a class="rank-badge" href="https://www.usnews.com/best-graduate-schools/top-science-schools/artificial-intelligence-rankings" target="_blank" title="US News AI Graduate School Rankings">★ US News AI #2</a>
+            &nbsp;·&nbsp;
             <em style="color:var(--accent-teal);font-style:normal" data-i18n="mit-completing">Completing May 2026</em>
           </div>
         </div>
