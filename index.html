@@ -1,1039 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academic Roadmap 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Academic Achievements & Career Launch</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #f4f5f7;
-    --surface: #ffffff;
-    --border: #e2e5eb;
-    --border-bright: #c8cdd8;
-    --text: #1a1e2a;
-    --muted: #8a93a8;
-    --accent-gold: #a07820;
-    --accent-teal: #0fa88e;
-    --accent-blue: #3567d4;
-    --accent-rose: #c93057;
-    --accent-purple: #6d4ec2;
-    --grade-a-plus: #0fa88e;
-    --grade-a: #3567d4;
+    --ut-orange: #BF5700;
+    --cu-gold: #CFB87C;
+    --mit-red: #A31F34;
+    --ink: #1a1612;
+    --ink-light: #4a4440;
+    --ink-faint: #8a8480;
+    --paper: #FAF8F5;
+    --paper-warm: #F2EDE5;
+    --paper-mid: #E8E2D8;
+    --accent-green: #2D6A4F;
+    --line: #D8D2C8;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Outfit', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
     min-height: 100vh;
     overflow-x: hidden;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(53,103,212,0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(53,103,212,0.06) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .container {
+  /* ─── HERO ─────────────────────────────── */
+  .hero {
     position: relative;
-    z-index: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 24px;
+    padding: 72px 48px 56px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(135deg, #fff 0%, var(--paper-warm) 100%);
+    overflow: hidden;
   }
-
-  /* LANG SWITCHER */
-  .lang-bar {
-    position: fixed;
-    top: 16px;
-    right: 20px;
-    z-index: 100;
-    display: flex;
-    gap: 4px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 4px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(191,87,0,0.07) 0%, transparent 70%);
+    pointer-events: none;
   }
-  .lang-btn {
+  .hero-label {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
-    letter-spacing: 0.08em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.15s;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.1s;
   }
-  .lang-btn:hover { color: var(--text); }
-  .lang-btn.active { background: var(--accent-blue); color: #fff; }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 72px);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.25s;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--ut-orange);
+  }
+  .hero-sub {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink-light);
+    line-height: 1.6;
+    max-width: 560px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.4s;
+  }
 
-  /* HEADER */
-  header { margin-bottom: 70px; animation: fadeUp 0.8s ease both; }
+  /* ─── LAYOUT ─────────────────────────────── */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px 80px;
+  }
 
-  .header-eyebrow {
+  /* ─── SECTION ─────────────────────────────── */
+  .section {
+    padding: 52px 0 0;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .section.visible { opacity: 1; transform: translateY(0); }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-badge {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-top: 2px;
+  }
+  .badge-ut   { background: rgba(191,87,0,0.1); }
+  .badge-cu   { background: rgba(207,184,124,0.2); }
+  .badge-mit  { background: rgba(163,31,52,0.08); }
+  .badge-jobs { background: rgba(45,106,79,0.1); }
+
+  .section-meta {}
+  .section-inst {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .section-prog {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--accent-gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  h1 {
-    font-family: 'DM Mono', monospace;
-    font-size: clamp(22px, 3.5vw, 46px);
-    font-weight: 500;
-    line-height: 1.25;
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
-  h1 em { color: var(--accent-gold); font-style: normal; }
-  .title-solid { color: var(--text); font-weight: 700; }
-  .title-solid .title-sub { color: var(--accent-gold); }
-  .title-sep { color: var(--muted); font-weight: 300; margin: 0 2px; }
-  .title-faded { color: var(--muted); font-weight: 300; opacity: 0.55; }
-
-  .header-sub {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    margin-top: 20px;
-  }
-
-  /* STATS */
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    margin-bottom: 48px;
-    animation: fadeUp 0.8s 0.05s ease both;
-  }
-  .stat-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
-    text-align: center;
-  }
-  .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .num-gold   { color: var(--accent-gold); }
-  .num-teal   { color: var(--accent-teal); }
-  .num-blue   { color: var(--accent-blue); }
-  .num-purple { color: var(--accent-purple); }
-
-  /* TIMELINE */
-  .timeline-section { margin-bottom: 70px; animation: fadeUp 0.8s 0.1s ease both; }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-  .months-scroll {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-  }
-
-  .month-col {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-  .month-col:hover { border-color: var(--border-bright); }
-  .month-col.current-month {
-    border-color: var(--accent-teal);
-    box-shadow: 0 0 0 1px rgba(15,168,142,0.2);
-  }
-  .month-header {
-    padding: 10px 12px 8px;
-    border-bottom: 1px solid var(--border);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--muted);
-  }
-  .month-col.current-month .month-header {
-    color: var(--accent-teal);
-    background: rgba(15,168,142,0.06);
-  }
-  .month-events { padding: 8px 6px; display: flex; flex-direction: column; gap: 4px; }
-
-  .event-chip {
-    border-radius: 4px;
-    padding: 5px 8px;
-    font-size: 10px;
-    line-height: 1.4;
-    font-weight: 500;
-    cursor: default;
-    transition: opacity 0.15s;
-  }
-  .event-chip:hover { opacity: 0.8; }
-  .chip-deadline { background: rgba(201,48,87,0.08);  color: var(--accent-rose);   border-left: 2px solid var(--accent-rose); }
-  .chip-outcome  { background: rgba(15,168,142,0.10); color: var(--accent-teal);   border-left: 2px solid var(--accent-teal); }
-  .chip-start    { background: rgba(53,103,212,0.08); color: var(--accent-blue);   border-left: 2px solid var(--accent-blue); }
-  .chip-grad     { background: rgba(160,120,32,0.10); color: var(--accent-gold);   border-left: 2px solid var(--accent-gold); }
-  .chip-visa     { background: rgba(109,78,194,0.10); color: var(--accent-purple); border-left: 2px solid var(--accent-purple); }
-
-  /* COURSES */
-  .courses-section { animation: fadeUp 0.8s 0.2s ease both; }
-
-  .program-block {
-    margin-bottom: 32px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-  .program-block:hover { border-color: var(--border-bright); }
-
-  .program-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border);
-    gap: 16px;
-  }
-  .program-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.3;
-  }
-  .program-loc {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
+    color: var(--ink-faint);
     margin-top: 4px;
-    line-height: 1.6;
   }
-  .program-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 100px;
-    white-space: nowrap;
+  .section-date {
+    margin-left: auto;
+    text-align: right;
     flex-shrink: 0;
   }
-  .badge-uw   { background: rgba(53,103,212,0.10);  color: var(--accent-blue); }
-  .badge-ut   { background: rgba(201,48,87,0.10);   color: var(--accent-rose); }
-  .badge-cu   { background: rgba(15,168,142,0.10);  color: var(--accent-teal); }
-  .badge-mit  { background: rgba(109,78,194,0.10);  color: var(--accent-purple); }
-  .badge-ntu  { background: rgba(160,120,32,0.10);  color: var(--accent-gold); }
-  .badge-cert { background: rgba(15,168,142,0.08);  color: var(--accent-teal); }
-
-  .rank-badge {
-    display: inline-flex;
-    align-items: center;
+  .date-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.08em;
-    padding: 2px 7px;
-    border-radius: 100px;
-    background: rgba(160,120,32,0.10);
-    color: var(--accent-gold);
-    border: 1px solid rgba(160,120,32,0.25);
     white-space: nowrap;
-    vertical-align: middle;
-    margin-left: 6px;
-    text-decoration: none;
-    cursor: pointer;
   }
-  .rank-badge:hover { background: rgba(160,120,32,0.18); }
+  .pill-ut  { background: rgba(191,87,0,0.1);  color: var(--ut-orange); }
+  .pill-cu  { background: rgba(207,184,124,0.15); color: #8a6a1a; }
+  .pill-mit { background: rgba(163,31,52,0.08); color: var(--mit-red); }
 
-  /* Status pill */
-  .status-pill {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    padding: 4px 10px;
-    border-radius: 100px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    display: none;
-  }
-  .status-pill.visible { display: inline-block; }
-  .status-active   { background: rgba(15,168,142,0.12); color: var(--accent-teal);   border: 1px solid rgba(15,168,142,0.3); }
-  .status-upcoming { background: rgba(53,103,212,0.10); color: var(--accent-blue);   border: 1px solid rgba(53,103,212,0.25); }
-  .status-done     { background: rgba(160,120,32,0.10); color: var(--accent-gold);   border: 1px solid rgba(160,120,32,0.25); }
-
-  .term-block { padding: 0 20px 14px; }
-  .term-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 12px 0 8px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .term-dates { margin-left: auto; font-size: 9px; letter-spacing: 0.05em; }
-
-  .course-row {
+  /* ─── COURSE GRID ─────────────────────────────── */
+  .courses {
     display: grid;
-    grid-template-columns: 28px 1fr auto;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.04);
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
   }
-  .course-row:last-child { border-bottom: none; }
+
+  .course-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .course-card:hover {
+    border-color: var(--accent-color, var(--ut-orange));
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    transform: translateY(-2px);
+  }
+  .course-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent-color, var(--ut-orange));
+    border-radius: 3px 0 0 3px;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.25s ease;
+  }
+  .course-card:hover::before { transform: scaleY(1); }
 
   .course-num {
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    font-weight: 500;
-    color: var(--muted);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    text-align: center;
-    padding: 2px 4px;
-    min-width: 26px;
-  }
-  .course-code {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
     font-size: 10px;
     font-weight: 500;
-    color: var(--accent-gold);
-    background: rgba(160,120,32,0.09);
-    border: 1px solid rgba(160,120,32,0.2);
-    border-radius: 4px;
-    padding: 1px 7px;
-    white-space: nowrap;
-    margin-bottom: 3px;
+    letter-spacing: 0.1em;
+    color: var(--accent-color, var(--ut-orange));
+    margin-bottom: 6px;
   }
-  .course-name { font-size: 12px; font-weight: 400; color: var(--text); opacity: 0.85; }
-  .course-prof { font-size: 10px; color: var(--muted); margin-top: 1px; }
+  .course-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .course-prof {
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-weight: 300;
+  }
+  .course-idx {
+    position: absolute;
+    top: 14px; right: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--paper-mid);
+    line-height: 1;
+    pointer-events: none;
+  }
 
+  /* ─── COMPLETED STATE ─────────────────────────────── */
+  .course-card.completed {
+    background: linear-gradient(135deg, #f6fdf9 0%, #edf7f2 100%);
+    border-color: rgba(45,106,79,0.25);
+  }
+  .course-card.completed::before {
+    background: var(--accent-green);
+    transform: scaleY(1);
+  }
+  .course-card.completed:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 4px 20px rgba(45,106,79,0.12);
+  }
+  .course-card.completed:hover::before {
+    background: var(--accent-green);
+  }
   .grade-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    padding: 4px 10px 4px 8px;
+    background: rgba(45,106,79,0.12);
+    border: 1px solid rgba(45,106,79,0.25);
+    border-radius: 20px;
     font-family: 'DM Mono', monospace;
     font-size: 11px;
     font-weight: 500;
-    padding: 2px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
+    color: var(--accent-green);
+    letter-spacing: 0.05em;
   }
-  .grade-aplus { background: rgba(15,168,142,0.10); color: var(--grade-a-plus); }
-  .grade-a     { background: rgba(53,103,212,0.10); color: var(--grade-a); }
+  .grade-badge::before {
+    content: '✓';
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .completed .course-idx {
+    color: rgba(45,106,79,0.12);
+  }
 
+  /* ─── MIT EXAM BLOCK ─────────────────────────────── */
+  .exam-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .exam-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .exam-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+    flex-shrink: 0;
+  }
+  .exam-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--mit-red);
+    flex-shrink: 0;
+    margin-top: 20px;
+    border: 2px solid #fff;
+    outline: 2px solid var(--mit-red);
+  }
+  .exam-dot.hollow {
+    background: #fff;
+  }
+  .exam-line {
+    width: 1px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--mit-red), rgba(163,31,52,0.15));
+    margin-top: 2px;
+  }
+  .exam-body {
+    flex: 1;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 0 0 12px 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .exam-body:hover {
+    border-color: rgba(163,31,52,0.3);
+    box-shadow: 0 4px 16px rgba(163,31,52,0.07);
+  }
+  .exam-body-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .exam-body-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--mit-red);
+    letter-spacing: 0.08em;
+  }
+  .exam-parts {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .exam-part {
+    padding: 4px 10px;
+    background: rgba(163,31,52,0.05);
+    border: 1px solid rgba(163,31,52,0.15);
+    border-radius: 6px;
+    font-size: 11px;
+    color: var(--mit-red);
+    font-weight: 400;
+  }
+  .exam-part span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    display: block;
+    color: var(--ink-faint);
+    margin-top: 1px;
+  }
+
+  /* ─── JOBS ─────────────────────────────── */
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .jobs-grid { grid-template-columns: 1fr; } }
+
+  .jobs-col-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 12px;
+  }
+
+  .location-chips, .company-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+
+  .loc-chip {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .loc-chip:hover {
+    border-color: var(--accent-green);
+    box-shadow: 0 2px 10px rgba(45,106,79,0.1);
+  }
+  .loc-flag { font-size: 18px; }
+
+  .co-chip {
+    padding: 8px 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .co-chip:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+    box-shadow: 0 4px 16px rgba(26,22,18,0.15);
+  }
+  .co-chip.google {
+    background: rgba(66,133,244,0.07);
+    border-color: rgba(66,133,244,0.3);
+    color: #1a73e8;
+  }
+  .co-chip.google:hover {
+    background: #1a73e8;
+    border-color: #1a73e8;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(26,115,232,0.25);
+  }
+
+  /* ─── FOOTER ─────────────────────────────── */
+  .footer {
+    border-top: 1px solid var(--line);
+    margin-top: 64px;
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .footer-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+  }
+  .status-dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-green);
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+  }
+
+  /* ─── DIVIDER ─────────────────────────────── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, var(--line), transparent);
+    margin: 48px 0 0;
+  }
+
+  /* ─── ANIMATIONS ─────────────────────────────── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
-  @media (max-width: 860px) {
-    .months-scroll { grid-template-columns: repeat(4, 1fr); }
-    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
   }
-  @media (max-width: 560px) {
-    .months-scroll { grid-template-columns: repeat(2, 1fr); }
-    .program-header { flex-direction: column; align-items: flex-start; }
-    .lang-bar { top: 8px; right: 8px; }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .hero { padding: 48px 24px 40px; }
+    .main { padding: 0 20px 60px; }
+    .section-header { flex-wrap: wrap; }
+    .section-date { margin-left: 0; }
+    .courses { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- LANGUAGE SWITCHER -->
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('jp')">JP</button>
-  <button class="lang-btn" onclick="setLang('zh')">繁中</button>
-</div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-label">Academic Portfolio · Spring 2026</div>
+  <h1 class="hero-title">Triple-Track<br/><em>Pursuit</em> of Excellence</h1>
+  <p class="hero-sub">Completing a Graduate Certificate in AI/ML, a Master of Science in Computer Science, and a MicroMasters in Statistics & Data Science — simultaneously — in Spring 2026.</p>
+</header>
 
-<div class="container">
+<main class="main">
 
-  <header>
-    <div class="header-eyebrow" data-i18n="eyebrow">Academic Roadmap</div>
-    <h1>
-      <span class="title-solid">☁️AWS<span class="title-sub">(Amazon EMR)</span></span><span class="title-sep"> ×</span>
-      <span class="title-solid">☸️Kubernetes</span><span class="title-faded"> × 🔍Elasticsearch × 💻MS-CS × 🧠MS-AI × 🗣️MS-CL</span>
-    </h1>
-    <div class="header-sub">
-      <span data-i18n="sub1">5 Institutions · 19 Courses · 1 Certification</span>
-      &nbsp;·&nbsp;
-      <span style="color:var(--accent-rose)" data-i18n="sub2">Goal Grades Shown</span>
+  <!-- ─── UT AUSTIN ─── -->
+  <section class="section" id="s1">
+    <div class="section-header">
+      <div class="section-badge badge-ut">🤘</div>
+      <div class="section-meta">
+        <div class="section-inst">University of Texas at Austin</div>
+        <div class="section-prog">Graduate Certificate · Artificial Intelligence & Machine Learning</div>
+      </div>
+      <div class="section-date">
+        <div class="date-pill pill-ut">Jan 12 – May 4, 2026</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:5px;text-align:right;">Austin, TX · Spring Term</div>
+      </div>
     </div>
-  </header>
-
-  <div class="stats-row">
-    <div class="stat-card">
-      <div class="stat-num num-gold">5</div>
-      <div class="stat-label" data-i18n="stat1">Institutions</div>
+    <div class="courses">
+      <div class="course-card completed" style="--accent-color: var(--accent-green)">
+        <div class="course-idx">①</div>
+        <div class="course-num" style="color:var(--accent-green)">AI394D</div>
+        <div class="course-name">Deep Learning</div>
+        <div class="course-prof">Prof. Philipp Krähenbühl</div>
+        <div class="grade-badge">A · 4.0 GPA</div>
+      </div>
+      <div class="course-card" style="--accent-color: var(--ut-orange)">
+        <div class="course-idx">②</div>
+        <div class="course-num">AI391L</div>
+        <div class="course-name">Machine Learning</div>
+        <div class="course-prof">Prof. Adam Klivans · Prof. Qiang Liu</div>
+      </div>
+      <div class="course-card" style="--accent-color: var(--ut-orange)">
+        <div class="course-idx">③</div>
+        <div class="course-num">AI395T</div>
+        <div class="course-name">Advances in Deep Generative Models</div>
+        <div class="course-prof">Prof. Qiang Liu</div>
+      </div>
+      <div class="course-card" style="--accent-color: var(--ut-orange)">
+        <div class="course-idx">④</div>
+        <div class="course-num">AI388K</div>
+        <div class="course-name">Online Learning and Optimization</div>
+        <div class="course-prof">Prof. Sanjay Shakkottai · Prof. Constantine Caramanis</div>
+      </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num num-teal">19</div>
-      <div class="stat-label" data-i18n="stat2">Courses Planned</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── CU BOULDER ─── -->
+  <section class="section" id="s2">
+    <div class="section-header">
+      <div class="section-badge badge-cu">🦬</div>
+      <div class="section-meta">
+        <div class="section-inst">University of Colorado Boulder</div>
+        <div class="section-prog">MS in Computer Science · Spring Session 2</div>
+      </div>
+      <div class="section-date">
+        <div class="date-pill pill-cu">Mar 9 – May 1, 2026</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:5px;text-align:right;">Boulder, CO · Graduation</div>
+      </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num num-blue" id="activeCount">—</div>
-      <div class="stat-label" data-i18n="stat3">Active Now</div>
+    <div class="courses">
+      <div class="course-card" style="--accent-color: var(--cu-gold)">
+        <div class="course-idx">①</div>
+        <div class="course-num" style="color:var(--cu-gold)">Elective</div>
+        <div class="course-name">Data Mining Foundations and Practice</div>
+        <div class="course-prof">TBD</div>
+      </div>
+      <div class="course-card" style="--accent-color: var(--cu-gold)">
+        <div class="course-idx">②</div>
+        <div class="course-num" style="color:var(--cu-gold)">Elective</div>
+        <div class="course-name">Software Architecture for Big Data</div>
+        <div class="course-prof">TBD</div>
+      </div>
+      <div class="course-card" style="--accent-color: var(--cu-gold)">
+        <div class="course-idx">③</div>
+        <div class="course-num" style="color:var(--cu-gold)">Breadth</div>
+        <div class="course-name">Network Systems: Principles and Practice</div>
+        <div class="course-prof">TBD</div>
+      </div>
+      <div class="course-card" style="--accent-color: var(--cu-gold)">
+        <div class="course-idx">④</div>
+        <div class="course-num" style="color:var(--cu-gold)">Breadth</div>
+        <div class="course-name">Computing, Ethics, and Society</div>
+        <div class="course-prof">TBD</div>
+      </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num num-purple">8</div>
-      <div class="stat-label" data-i18n="stat4">Key Milestones</div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── MIT ─── -->
+  <section class="section" id="s3">
+    <div class="section-header">
+      <div class="section-badge badge-mit">☘️</div>
+      <div class="section-meta">
+        <div class="section-inst">Massachusetts Institute of Technology</div>
+        <div class="section-prog">MicroMasters Program · Statistics and Data Science</div>
+      </div>
+      <div class="section-date">
+        <div class="date-pill pill-mit">Mar 17 – Apr 30, 2026</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);margin-top:5px;text-align:right;">Cambridge, MA · Capstone</div>
+      </div>
     </div>
-  </div>
-
-  <div class="timeline-section">
-    <div class="section-label" data-i18n="sec-milestones">Key Milestones</div>
-    <div class="months-scroll">
-
-      <div class="month-col" id="mcol-2">
-        <div class="month-header" id="mhdr-2"></div>
-        <div class="month-events">
-          <div class="event-chip chip-start"><span data-i18n="ev-cu-start">CU Boulder Spring Session begins</span><br><span style="opacity:0.6">02.18</span></div>
-          <div class="event-chip chip-start"><span data-i18n="ev-ntu-start">NTU Spring Semester begins</span><br><span style="opacity:0.6">02.23</span></div>
+    <div class="exam-timeline">
+      <div class="exam-row">
+        <div class="exam-connector">
+          <div class="exam-dot"></div>
+          <div class="exam-line"></div>
         </div>
-      </div>
-
-      <div class="month-col" id="mcol-3">
-        <div class="month-header" id="mhdr-3"></div>
-        <div class="month-events">
-          <div class="event-chip chip-deadline"><span data-i18n="ev-uw-deadline">MS CL UW Application Deadline</span><br><span style="opacity:0.6">03.01</span></div>
-          <div class="event-chip chip-start"><span data-i18n="ev-mit-start">MIT MicroMasters Capstone begins</span><br><span style="opacity:0.6">03.31</span></div>
-        </div>
-      </div>
-
-      <div class="month-col" id="mcol-4">
-        <div class="month-header" id="mhdr-4"></div>
-        <div class="month-events">
-          <div class="event-chip chip-outcome"><span data-i18n="ev-uw-outcome">MS CL UW Outcome</span><br><span style="opacity:0.6">04.01</span></div>
-          <div class="event-chip chip-deadline"><span data-i18n="ev-ut-deadline">MS AI UT Application Deadline</span><br><span style="opacity:0.6">04.15</span></div>
-          <div class="event-chip chip-grad"><span data-i18n="ev-mit-end">MIT Capstone ends</span><br><span style="opacity:0.6">04.30</span></div>
-        </div>
-      </div>
-
-      <div class="month-col" id="mcol-5">
-        <div class="month-header" id="mhdr-5"></div>
-        <div class="month-events">
-          <div class="event-chip chip-grad"><span data-i18n="ev-cu-grad">Graduation: MS CS CU Boulder</span><br><span style="opacity:0.6">05.23</span></div>
-          <div class="event-chip chip-visa"><span data-i18n="ev-visa">Work VISA Renewal</span><br><span style="opacity:0.6">05.25</span></div>
-          <div class="event-chip chip-start"><span data-i18n="ev-utokyo">UTokyo PhD Application Start</span><br><span style="opacity:0.6">05.30 · 東京大学大学院</span></div>
-          <div class="event-chip chip-outcome"><span data-i18n="ev-ut-outcome">MS AI UT Outcome</span><br><span style="opacity:0.6">05.31</span></div>
-        </div>
-      </div>
-
-      <div class="month-col" id="mcol-6">
-        <div class="month-header" id="mhdr-6"></div>
-        <div class="month-events">
-          <div class="event-chip chip-deadline"><span data-i18n="ev-gc-deadline">GC NLT UW Application Deadline</span><br><span style="opacity:0.6">06.01</span></div>
-          <div class="event-chip chip-start"><span data-i18n="ev-ut-summer">UT Austin Summer begins</span><br><span style="opacity:0.6">06.04</span></div>
-          <div class="event-chip chip-grad"><span data-i18n="ev-ntu-end">NTU Spring Semester ends</span><br><span style="opacity:0.6">06.14</span></div>
-        </div>
-      </div>
-
-      <div class="month-col" id="mcol-7">
-        <div class="month-header" id="mhdr-7"></div>
-        <div class="month-events">
-          <div class="event-chip chip-start"><span data-i18n="ev-uw-start">UW Summer Term begins</span><br><span style="opacity:0.6">07.23</span></div>
-        </div>
-      </div>
-
-      <div class="month-col" id="mcol-8">
-        <div class="month-header" id="mhdr-8"></div>
-        <div class="month-events">
-          <div class="event-chip chip-grad"><span data-i18n="ev-ut-end">UT Austin Summer ends</span><br><span style="opacity:0.6">08.17</span></div>
-          <div class="event-chip chip-grad"><span data-i18n="ev-uw-end">UW Summer Term ends</span><br><span style="opacity:0.6">08.21</span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="courses-section">
-    <div class="section-label" data-i18n="sec-programs">Academic Programs & Courses</div>
-
-    <!-- UT Austin -->
-    <div class="program-block">
-      <div class="program-header">
-        <div>
-          <div class="program-title" data-i18n="ut-title">Master of Science in Artificial Intelligence</div>
-          <div class="program-loc">University of Texas · Austin, TX
-            <a class="rank-badge" href="https://www.usnews.com/best-graduate-schools/top-science-schools/artificial-intelligence-rankings" target="_blank" title="US News AI Graduate School Rankings">★ US News AI #10</a>
+        <div class="exam-body">
+          <div class="exam-body-title">DS.CFx · Capstone Exam in Statistics and Data Science</div>
+          <div class="exam-body-date">Apr 7 – Apr 9, 2026 · Part 1 &nbsp;|&nbsp; Apr 14 – Apr 16, 2026 · Part 2</div>
+          <div class="exam-parts">
+            <div class="exam-part">Part 1 <span>Apr 7–9 · Probability &amp; Statistics Theory</span></div>
+            <div class="exam-part">Part 2 <span>Apr 14–16 · Statistics &amp; Machine Learning</span></div>
           </div>
         </div>
-        <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;">
-          <div class="status-pill" id="status-ut"></div>
-          <div class="program-badge badge-ut">MS · AI</div>
-        </div>
       </div>
-      <div class="term-block">
-        <div class="term-label"><span data-i18n="term-spring">Spring Term</span><span class="term-dates">2026.01.12 – 2026.05.04</span></div>
-        <div class="course-row">
-          <div class="course-num">#02</div>
-          <div><div class="course-code">AI394D</div><div class="course-name" data-i18n="c02">Deep Learning</div><div class="course-prof">Prof. Philipp Krähenbühl</div></div>
-          <div class="grade-badge grade-a">A</div>
+      <div class="exam-row">
+        <div class="exam-connector">
+          <div class="exam-dot hollow"></div>
         </div>
-        <div class="course-row">
-          <div class="course-num">#03</div>
-          <div><div class="course-code">AI391L</div><div class="course-name" data-i18n="c03">Machine Learning</div><div class="course-prof">Prof. Adam Klivans, Qiang Liu</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#04</div>
-          <div><div class="course-code">AI395T</div><div class="course-name" data-i18n="c04">Advances in Deep Generative Models</div><div class="course-prof">Prof. Qiang Liu</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#05</div>
-          <div><div class="course-code">AI388K</div><div class="course-name" data-i18n="c05">Online Learning and Optimization</div><div class="course-prof">Prof. Sanjay Shakkottai, Constantine Caramanis</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-      </div>
-      <div class="term-block">
-        <div class="term-label"><span data-i18n="term-summer">Summer Term</span><span class="term-dates">2026.06.04 – 2026.08.17</span></div>
-        <div class="course-row">
-          <div class="course-num">#06</div>
-          <div><div class="course-code">AI380H</div><div class="course-name" data-i18n="c06">Artificial Intelligence in Healthcare</div></div>
-          <div class="grade-badge grade-a">A</div>
+        <div class="exam-body" style="opacity:0.5;">
+          <div class="exam-body-title" style="font-style:italic;font-weight:300;">Completion &amp; Certificate Awarded</div>
+          <div class="exam-body-date">~Apr 30, 2026</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- CU Boulder -->
-    <div class="program-block">
-      <div class="program-header">
-        <div>
-          <div class="program-title" data-i18n="cu-title">Master of Science in Computer Science</div>
-          <div class="program-loc">University of Colorado · Boulder, CO &nbsp;·&nbsp; <span data-i18n="cu-grad">Graduation 05.23.2026</span></div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;">
-          <div class="status-pill" id="status-cu"></div>
-          <div class="program-badge badge-cu">MS · CS</div>
-        </div>
+  <div class="divider"></div>
+
+  <!-- ─── JOBS ─── -->
+  <section class="section" id="s4">
+    <div class="section-header">
+      <div class="section-badge badge-jobs">🚀</div>
+      <div class="section-meta">
+        <div class="section-inst">Career Launch</div>
+        <div class="section-prog">Global Job Applications · Technology Sector</div>
       </div>
-      <div class="term-block">
-        <div class="term-label"><span data-i18n="term-spring-session">Spring Session</span><span class="term-dates">2026.02.18 – 2026.05.12</span></div>
-        <div class="course-row">
-          <div class="course-num">#07</div>
-          <div><div class="course-name" data-i18n="c07">Data Mining Foundations and Practice</div><div class="course-prof" data-i18n="elective">Elective</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#08</div>
-          <div><div class="course-name" data-i18n="c08">Machine Learning: Theory and Hands-On Practice with Python</div><div class="course-prof" data-i18n="breadth">Breadth</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#09</div>
-          <div><div class="course-name" data-i18n="c09">Introduction to Robotics with Webots</div><div class="course-prof" data-i18n="elective">Elective</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#10</div>
-          <div><div class="course-name" data-i18n="c10">Software Architecture for Big Data</div><div class="course-prof" data-i18n="elective">Elective</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#11</div>
-          <div><div class="course-name" data-i18n="c11">Network Systems: Principles and Practice</div><div class="course-prof" data-i18n="breadth">Breadth</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#12</div>
-          <div><div class="course-name" data-i18n="c12">Computing, Ethics, and Society</div><div class="course-prof" data-i18n="breadth">Breadth</div></div>
-          <div class="grade-badge grade-a">A</div>
+      <div class="section-date">
+        <div class="date-pill" style="background:rgba(45,106,79,0.1);color:var(--accent-green);">
+          <span class="status-dot"></span>Active Search
         </div>
       </div>
     </div>
-
-    <!-- UW -->
-    <div class="program-block">
-      <div class="program-header">
-        <div>
-          <div class="program-title" data-i18n="uw-title">Master of Science in Computational Linguistics</div>
-          <div class="program-loc">University of Washington · Seattle, WA
-            <a class="rank-badge" href="https://www.usnews.com/best-graduate-schools/top-science-schools/artificial-intelligence-rankings" target="_blank" title="US News AI Graduate School Rankings">★ US News AI #8</a>
-            &nbsp;·&nbsp;
-            <em style="color:var(--accent-rose);font-style:normal"><span data-i18n="uw-app">Applied: 03.01 · Decision: 04.01</span></em>
-          </div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;">
-          <div class="status-pill" id="status-uw"></div>
-          <div class="program-badge badge-uw">MS · CL</div>
+    <div class="jobs-grid">
+      <div>
+        <div class="jobs-col-title">Target Locations</div>
+        <div class="location-chips">
+          <div class="loc-chip" style="background:rgba(11,45,110,0.07);border-color:rgba(11,45,110,0.25);color:#0b2d6e;font-weight:600;"><span class="loc-flag">🇺🇸</span> United States</div>
+          <div class="loc-chip"><span class="loc-flag">🇨🇦</span> Canada</div>
+          <div class="loc-chip"><span class="loc-flag">🇬🇧</span> United Kingdom</div>
+          <div class="loc-chip"><span class="loc-flag">🇮🇪</span> Ireland</div>
+          <div class="loc-chip"><span class="loc-flag">🇯🇵</span> Japan</div>
+          <div class="loc-chip"><span class="loc-flag">🇸🇬</span> Singapore</div>
         </div>
       </div>
-      <div class="term-block">
-        <div class="term-label"><span data-i18n="term-summer">Summer Term</span><span class="term-dates">2026.07.23 – 2026.08.21</span></div>
-        <div class="course-row">
-          <div class="course-num">#01</div>
-          <div><div class="course-code">LING473</div><div class="course-name" data-i18n="c01">Basics for Computational Linguistics</div></div>
-          <div class="grade-badge grade-a">A</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MIT -->
-    <div class="program-block">
-      <div class="program-header">
-        <div>
-          <div class="program-title" data-i18n="mit-title">MicroMasters Program in Statistics and Data Science</div>
-          <div class="program-loc">MIT · Cambridge, MA
-            <a class="rank-badge" href="https://www.usnews.com/best-graduate-schools/top-science-schools/artificial-intelligence-rankings" target="_blank" title="US News AI Graduate School Rankings">★ US News AI #2</a>
-            &nbsp;·&nbsp;
-            <em style="color:var(--accent-teal);font-style:normal" data-i18n="mit-completing">Completing May 2026</em>
-          </div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;">
-          <div class="status-pill" id="status-mit"></div>
-          <div class="program-badge badge-mit">MicroMasters</div>
-        </div>
-      </div>
-      <div class="term-block">
-        <div class="term-label"><span data-i18n="term-capstone">Capstone Exam</span><span class="term-dates">2026.03.31 – 2026.04.30</span></div>
-        <div class="course-row">
-          <div class="course-num">#13</div>
-          <div><div class="course-code">DS.CFx</div><div class="course-name" data-i18n="c13">Capstone Exam in Statistics and Data Science</div></div>
-          <div class="grade-badge grade-a">A</div>
+      <div>
+        <div class="jobs-col-title">Target Companies</div>
+        <div class="company-chips">
+          <div class="co-chip google">Google</div>
+          <div class="co-chip">Microsoft</div>
+          <div class="co-chip">Meta</div>
+          <div class="co-chip">NVIDIA</div>
+          <div class="co-chip">Apple</div>
+          <div class="co-chip">Amazon</div>
+          <div class="co-chip">Netflix</div>
+          <div class="co-chip">Anthropic</div>
+          <div class="co-chip">OpenAI</div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- NTU -->
-    <div class="program-block">
-      <div class="program-header">
-        <div>
-          <div class="program-title" data-i18n="ntu-title">Taiwan Artificial Intelligence College Alliance</div>
-          <div class="program-loc" data-i18n="ntu-loc">College of Electrical Engineering and Computer Science, National Taiwan University</div>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;flex-shrink:0;">
-          <div class="status-pill" id="status-ntu"></div>
-          <div class="program-badge badge-ntu">AIA · NTU</div>
-        </div>
-      </div>
-      <div class="term-block">
-        <div class="term-label"><span data-i18n="term-spring-sem">Spring Semester</span><span class="term-dates">2026.02.23 – 2026.06.14</span></div>
-        <div class="course-row">
-          <div class="course-num">#14</div>
-          <div><div class="course-code">AIA7000</div><div class="course-name" data-i18n="c14">LLM in Cybersecurity System</div></div>
-          <div class="grade-badge grade-aplus">A+</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#15</div>
-          <div><div class="course-code">EEE5053</div><div class="course-name" data-i18n="c15">Computer Vision</div></div>
-          <div class="grade-badge grade-aplus">A+</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#16</div>
-          <div><div class="course-code">CSIE7694</div><div class="course-name" data-i18n="c16">Digital Visual Effects (VFX)</div></div>
-          <div class="grade-badge grade-aplus">A+</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#17</div>
-          <div><div class="course-code">CSIE5098</div><div class="course-name" data-i18n="c17">Digital Image Synthesis (Rendering)</div></div>
-          <div class="grade-badge grade-aplus">A+</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#18</div>
-          <div><div class="course-code">CSIE5135</div><div class="course-name" data-i18n="c18">Multimedia Security</div></div>
-          <div class="grade-badge grade-aplus">A+</div>
-        </div>
-        <div class="course-row">
-          <div class="course-num">#19</div>
-          <div><div class="course-code">CSIE5743</div><div class="course-name" data-i18n="c19">Deep Learning for Medical Imaging</div></div>
-          <div class="grade-badge grade-aplus">A+</div>
-        </div>
-      </div>
-    </div>
+</main>
 
-    <!-- Elasticsearch -->
-    <div class="program-block">
-      <div class="program-header">
-        <div>
-          <div class="program-title" data-i18n="ece-title">Elastic Certified Engineer</div>
-          <div class="program-loc">
-            Elasticsearch &nbsp;·&nbsp;
-            <span data-i18n="ece-count">Currently 7 ECEs in Japan</span>
-            &nbsp;·&nbsp;
-            <em style="color:var(--accent-gold);font-style:normal" data-i18n="ece-goal">Goal: Become #8</em>
-          </div>
-        </div>
-        <div class="program-badge badge-cert" data-i18n="badge-cert">Certification</div>
-      </div>
-      <div class="term-block">
-        <div class="term-label" data-i18n="term-credential">Credential</div>
-        <div class="course-row">
-          <div class="course-num">#20</div>
-          <div>
-            <div class="course-code">ECE</div>
-            <div class="course-name" data-i18n="c20">Elastic Certified Engineer</div>
-            <div class="course-prof" data-i18n="ece-prof">Goal: Rank as #8 ECE in Japan</div>
-          </div>
-          <div class="grade-badge" style="background:rgba(160,120,32,0.10);color:var(--accent-gold)">✦ Goal #8</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- SOCIAL LINKS -->
-  <div style="display:flex;justify-content:center;gap:12px;padding:40px 0 16px;flex-wrap:wrap;">
-
-    <!-- YouTube -->
-    <a href="https://www.youtube.com/@goog-msft-fb-nflx-nvda-aapl" target="_blank" rel="noopener"
-       style="display:flex;align-items:center;gap:8px;padding:9px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;transition:border-color 0.2s,box-shadow 0.2s;"
-       onmouseover="this.style.borderColor='#FF0000';this.style.boxShadow='0 0 0 1px rgba(255,0,0,0.2)'"
-       onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="20" height="14" rx="3" fill="#FF0000"/>
-        <polygon points="8,3.5 8,10.5 14,7" fill="white"/>
-      </svg>
-      YouTube
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/james-goog-jp-ms-cl-uw/" target="_blank" rel="noopener"
-       style="display:flex;align-items:center;gap:8px;padding:9px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;transition:border-color 0.2s,box-shadow 0.2s;"
-       onmouseover="this.style.borderColor='#0A66C2';this.style.boxShadow='0 0 0 1px rgba(10,102,194,0.2)'"
-       onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="18" height="18" rx="3" fill="#0A66C2"/>
-        <rect x="2.5" y="6.5" width="2.5" height="9" fill="white"/>
-        <circle cx="3.75" cy="3.75" r="1.5" fill="white"/>
-        <path d="M7.5 6.5h2.3v1.2h.03c.32-.6 1.1-1.2 2.27-1.2 2.43 0 2.88 1.6 2.88 3.68V15.5h-2.5v-4.85c0-.93-.02-2.13-1.3-2.13-1.3 0-1.5 1.02-1.5 2.07V15.5H7.5V6.5z" fill="white"/>
-      </svg>
-      LinkedIn
-    </a>
-
-    <!-- GitHub -->
-    <a href="https://github.com/goog-msft-fb-nflx-nvda-aapl/" target="_blank" rel="noopener"
-       style="display:flex;align-items:center;gap:8px;padding:9px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;transition:border-color 0.2s,box-shadow 0.2s;"
-       onmouseover="this.style.borderColor='#333';this.style.boxShadow='0 0 0 1px rgba(0,0,0,0.15)'"
-       onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 0C4.03 0 0 4.13 0 9.23c0 4.08 2.58 7.54 6.16 8.76.45.08.61-.2.61-.44v-1.54c-2.5.56-3.03-1.24-3.03-1.24-.41-1.07-1-1.36-1-1.36-.82-.58.06-.57.06-.57.9.07 1.38.95 1.38.95.8 1.41 2.1 1 2.61.77.08-.6.31-1 .57-1.23-2-.23-4.1-1.03-4.1-4.57 0-1.01.35-1.83.93-2.48-.09-.23-.4-1.17.09-2.44 0 0 .76-.25 2.5.96A8.5 8.5 0 019 4.37c.77 0 1.55.11 2.27.32 1.73-1.2 2.49-.96 2.49-.96.5 1.27.18 2.21.09 2.44.58.65.93 1.47.93 2.48 0 3.55-2.1 4.33-4.1 4.56.32.28.61.84.61 1.7v2.52c0 .24.16.53.62.44C15.42 16.77 18 13.31 18 9.23 18 4.13 13.97 0 9 0z" fill="#1a1e2a"/>
-      </svg>
-      GitHub
-    </a>
-
-    <!-- Transcript (Google Sheets) -->
-    <a href="https://docs.google.com/spreadsheets/d/1qFHtR24B5UH7TLq60TdfFSSah3_vxXQ-apWZ8R6ydtY/edit?gid=711945851#gid=711945851" target="_blank" rel="noopener"
-       style="display:flex;align-items:center;gap:8px;padding:9px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.06em;transition:border-color 0.2s,box-shadow 0.2s;"
-       onmouseover="this.style.borderColor='#0F9D58';this.style.boxShadow='0 0 0 1px rgba(15,157,88,0.2)'"
-       onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="18" height="18" rx="3" fill="#0F9D58"/>
-        <rect x="3" y="5" width="12" height="1.5" rx=".5" fill="white"/>
-        <rect x="3" y="8.25" width="12" height="1.5" rx=".5" fill="white"/>
-        <rect x="3" y="11.5" width="12" height="1.5" rx=".5" fill="white"/>
-        <rect x="8.25" y="3" width="1.5" height="12" rx=".5" fill="rgba(255,255,255,0.4)"/>
-      </svg>
-      Transcript(学業成績)
-    </a>
-
-  </div>
-
-  <div style="text-align:center;padding:0 0 20px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.1em;" data-i18n="footer">
-    ROADMAP · 2026
-  </div>
-
-</div>
+<footer class="footer">
+  <div class="footer-note">Spring 2026 Academic Portfolio · UT Austin · CU Boulder · MIT</div>
+  <div class="footer-note"><span class="status-dot"></span>All programs concurrent · Completion est. May 2026</div>
+</footer>
 
 <script>
-// ─── TRANSLATIONS ─────────────────────────────────────────────────────────────
-const i18n = {
-  en: {
-    eyebrow:'Academic Roadmap', h1a:'February –', h1b:'August',
-    sub1:'5 Institutions · 19 Courses · 1 Certification', sub2:'Goal Grades Shown',
-    stat1:'Institutions', stat2:'Courses Planned', stat3:'Active Now', stat4:'Key Milestones',
-    'sec-milestones':'Key Milestones', 'sec-programs':'Academic Programs & Courses',
-    months:['FEB','MAR','APR','MAY','JUN','JUL','AUG'], today:'TODAY',
-    'ev-cu-start':'CU Boulder Spring Session begins',
-    'ev-ntu-start':'NTU Spring Semester begins',
-    'ev-uw-deadline':'MS CL UW Application Deadline',
-    'ev-mit-start':'MIT MicroMasters Capstone begins',
-    'ev-uw-outcome':'MS CL UW Outcome',
-    'ev-ut-deadline':'MS AI UT Application Deadline',
-    'ev-mit-end':'MIT Capstone ends',
-    'ev-cu-grad':'Graduation: MS CS CU Boulder',
-    'ev-visa':'Work VISA Renewal',
-    'ev-utokyo':'UTokyo PhD Application Start',
-    'ev-ut-outcome':'MS AI UT Outcome',
-    'ev-gc-deadline':'GC NLT UW Application Deadline',
-    'ev-ut-summer':'UT Austin Summer begins',
-    'ev-ntu-end':'NTU Spring Semester ends',
-    'ev-uw-start':'UW Summer Term begins',
-    'ev-ut-end':'UT Austin Summer ends',
-    'ev-uw-end':'UW Summer Term ends',
-    'ut-title':'Master of Science in Artificial Intelligence',
-    'cu-title':'Master of Science in Computer Science',
-    'cu-grad':'Graduation 05.23.2026',
-    'uw-title':'Master of Science in Computational Linguistics',
-    'uw-app':'Applied: 03.01 · Decision: 04.01',
-    'mit-title':'MicroMasters Program in Statistics and Data Science',
-    'mit-completing':'Completing May 2026',
-    'ntu-title':'Taiwan Artificial Intelligence College Alliance',
-    'ntu-loc':'College of Electrical Engineering and Computer Science, National Taiwan University',
-    'ece-title':'Elastic Certified Engineer',
-    'ece-count':'Currently 7 ECEs in Japan', 'ece-goal':'Goal: Become #8',
-    'badge-cert':'Certification',
-    'term-spring':'Spring Term','term-summer':'Summer Term',
-    'term-spring-session':'Spring Session','term-spring-sem':'Spring Semester',
-    'term-capstone':'Capstone Exam','term-credential':'Credential',
-    elective:'Elective', breadth:'Breadth',
-    'status-active':'● Active Now','status-upcoming':'○ Upcoming','status-done':'✓ Completed',
-    c01:'Basics for Computational Linguistics',
-    c02:'Deep Learning', c03:'Machine Learning',
-    c04:'Advances in Deep Generative Models', c05:'Online Learning and Optimization',
-    c06:'Artificial Intelligence in Healthcare',
-    c07:'Data Mining Foundations and Practice',
-    c08:'Machine Learning: Theory and Hands-On Practice with Python',
-    c09:'Introduction to Robotics with Webots',
-    c10:'Software Architecture for Big Data',
-    c11:'Network Systems: Principles and Practice',
-    c12:'Computing, Ethics, and Society',
-    c13:'Capstone Exam in Statistics and Data Science',
-    c14:'LLM in Cybersecurity System', c15:'Computer Vision',
-    c16:'Digital Visual Effects (VFX)', c17:'Digital Image Synthesis (Rendering)',
-    c18:'Multimedia Security', c19:'Deep Learning for Medical Imaging',
-    c20:'Elastic Certified Engineer', 'ece-prof':'Goal: Become 8th ECE in Japan',
-    footer:'ROADMAP · 2026',
-  },
-  jp: {
-    eyebrow:'学術計画', h1a:'二月 –', h1b:'八月',
-    sub1:'5校 · 19科目 · 資格1件', sub2:'目標成績表示',
-    stat1:'機関数', stat2:'予定科目数', stat3:'現在受講中', stat4:'主要中間目標',
-    'sec-milestones':'主要中間目標', 'sec-programs':'学術課程・科目',
-    months:['2月','3月','4月','5月','6月','7月','8月'], today:'今日',
-    'ev-cu-start':'CU-Boulder春学期開始',
-    'ev-ntu-start':'NTU春学期開始',
-    'ev-uw-deadline':'UW計算言語学修士 出願締切',
-    'ev-mit-start':'MIT MicroMaster 集大成試験開始',
-    'ev-uw-outcome':'UW計算言語学修士 結果通知',
-    'ev-ut-deadline':'UT人工知能修士 出願締切',
-    'ev-mit-end':'MIT集大成試験 終了',
-    'ev-cu-grad':'卒業式：CU-Boulder 計算機科学修士',
-    'ev-visa':'就労査証更新',
-    'ev-utokyo':'東京大学大学院 博士課程 出願開始',
-    'ev-ut-outcome':'UT人工知能修士 結果通知',
-    'ev-gc-deadline':'UW GC NLT 出願締切',
-    'ev-ut-summer':'UTAustin夏学期開始',
-    'ev-ntu-end':'NTU春学期終了',
-    'ev-uw-start':'UW夏学期開始',
-    'ev-ut-end':'UTAustin夏学期終了',
-    'ev-uw-end':'UW夏学期終了',
-    'ut-title':'人工知能 理学修士',
-    'cu-title':'計算機科学 理学修士',
-    'cu-grad':'卒業予定 2026年5月23日',
-    'uw-title':'計算言語学 理学修士',
-    'uw-app':'出願：03.01 · 結果通知：04.01',
-    'mit-title':'統計とData科学のmicroMaster課程',
-    'mit-completing':'2026年5月修了予定',
-    'ntu-title':'台湾人工知能大学連盟',
-    'ntu-loc':'国立台湾大学 電機情報学院',
-    'ece-title':'Elastic認定Engineer(Elasticsearch)',
-    'ece-count':'現在、日本のECEは7名', 'ece-goal':'目標：8人目になる',
-    'badge-cert':'資格',
-    'term-spring':'春学期','term-summer':'夏学期',
-    'term-spring-session':'春学期','term-spring-sem':'春学期',
-    'term-capstone':'集大成試験','term-credential':'資格',
-    elective:'選択科目', breadth:'幅広い科目',
-    'status-active':'● 受講中','status-upcoming':'○ 予定','status-done':'✓ 修了',
-    c01:'計算言語学(CL)の基礎',
-    c02:'深層学習(DL)', c03:'機械学習(ML)',
-    c04:'深層生成 models の進歩', c05:'Online 学習と最適化',
-    c06:'医療における人工知能(AI)',
-    c07:'Data採掘(DM)の基礎と実践',
-    c08:'機械学習(ML)：理論とPythonによる実践',
-    c09:'WebotsによるRobot工学入門',
-    c10:'Big DataのSoftware 構造',
-    c11:'Network Systems：原理と実践',
-    c12:'計算、倫理、社会',
-    c13:'統計とData科学の集大成試験',
-    c14:'Cyber安全における大規模言語models(LLM)', c15:'計算機視覚(CV)',
-    c16:'視覚効果（VFX）', c17:'画像合成(PBRT)',
-    c18:'複合媒体(MM)安全', c19:'医療画像の深層学習(DL)',
-    c20:'Elastic認定Engineer(Elasticsearch)', 'ece-prof':'目標：日本でECE第8号になる',
-    footer:'計画 · 令和八年',
-  },
-  zh: {
-    eyebrow:'學術規劃藍圖', h1a:'二月 –', h1b:'八月',
-    sub1:'5所院校 · 19門課程 · 1項認證', sub2:'目標成績標示',
-    stat1:'院校數', stat2:'計畫課程數', stat3:'目前進行中', stat4:'重要里程碑',
-    'sec-milestones':'重要里程碑', 'sec-programs':'學術課程與科目',
-    months:['二月','三月','四月','五月','六月','七月','八月'], today:'今天',
-    'ev-cu-start':'CU博德春季學期開始',
-    'ev-ntu-start':'台大春季學期開始',
-    'ev-uw-deadline':'UW計算語言學碩士 申請截止',
-    'ev-mit-start':'MIT微碩士 統整考試開始',
-    'ev-uw-outcome':'UW計算語言學碩士 錄取通知',
-    'ev-ut-deadline':'UT人工智慧碩士 申請截止',
-    'ev-mit-end':'MIT統整考試 結束',
-    'ev-cu-grad':'畢業典禮：CU博德 計算機科學碩士',
-    'ev-visa':'日本工作簽證續簽',
-    'ev-utokyo':'東京大學大學院 博士班申請開始',
-    'ev-ut-outcome':'UT人工智慧碩士 錄取通知',
-    'ev-gc-deadline':'UW GC NLT 申請截止',
-    'ev-ut-summer':'UT奧斯汀暑期學期開始',
-    'ev-ntu-end':'台大春季學期結束',
-    'ev-uw-start':'UW暑期學期開始',
-    'ev-ut-end':'UT奧斯汀暑期學期結束',
-    'ev-uw-end':'UW暑期學期結束',
-    'ut-title':'人工智慧碩士',
-    'cu-title':'計算機科學碩士',
-    'cu-grad':'預計畢業 2026.05.23',
-    'uw-title':'計算語言學碩士',
-    'uw-app':'申請：03.01 · 錄取通知：04.01',
-    'mit-title':'統計與資料科學 微碩士課程',
-    'mit-completing':'預計2026年5月完成',
-    'ntu-title':'臺灣人工智慧學校聯盟',
-    'ntu-loc':'國立臺灣大學 電機資訊學院',
-    'ece-title':'Elastic認證工程師(Elasticsearch)',
-    'ece-count':'目前日本共有7名ECE', 'ece-goal':'目標：成為第8名',
-    'badge-cert':'認證',
-    'term-spring':'春季學期','term-summer':'暑期學期',
-    'term-spring-session':'春季課程','term-spring-sem':'春季學期',
-    'term-capstone':'統整考試','term-credential':'認證',
-    elective:'選修課', breadth:'廣度課程',
-    'status-active':'● 進行中','status-upcoming':'○ 即將開始','status-done':'✓ 已完成',
-    c01:'計算語言學基礎',
-    c02:'深度學習', c03:'機器學習',
-    c04:'深度生成模型進展', c05:'線上學習與最佳化',
-    c06:'醫療人工智慧',
-    c07:'資料探勘基礎與實踐',
-    c08:'機器學習：理論與Python實作',
-    c09:'Webots機器人學導論',
-    c10:'大數據軟體架構',
-    c11:'網路系統：原理與實踐',
-    c12:'運算、倫理與社會',
-    c13:'統計與資料科學統整考試',
-    c14:'大型語言模型與資訊安全系統', c15:'電腦視覺',
-    c16:'數位視覺效果', c17:'數位影像合成',
-    c18:'多媒體安全', c19:'深度學習於醫學影像',
-    c20:'Elastic認證工程師(Elasticsearch)', 'ece-prof':'目標：成為日本第8位ECE',
-    footer:'學術規劃藍圖 · 民国115年',
-  }
-};
-
-// ─── PROGRAM DATE RANGES ──────────────────────────────────────────────────────
-const programs = [
-  { id:'status-ut',  start: new Date('2026-01-12'), end: new Date('2026-08-17') },
-  { id:'status-cu',  start: new Date('2026-02-18'), end: new Date('2026-05-12') },
-  { id:'status-uw',  start: new Date('2026-07-23'), end: new Date('2026-08-21') },
-  { id:'status-mit', start: new Date('2026-03-31'), end: new Date('2026-04-30') },
-  { id:'status-ntu', start: new Date('2026-02-23'), end: new Date('2026-06-14') },
-];
-
-function getStatus(start, end) {
-  const today = new Date(); today.setHours(0,0,0,0);
-  if (today >= start && today <= end) return 'active';
-  if (today < start) return 'upcoming';
-  return 'done';
-}
-
-function renderStatus(lang) {
-  const t = i18n[lang];
-  let activeCount = 0;
-  programs.forEach(p => {
-    const el = document.getElementById(p.id);
-    if (!el) return;
-    const s = getStatus(p.start, p.end);
-    el.className = 'status-pill visible';
-    if (s === 'active') {
-      el.classList.add('status-active');
-      el.textContent = t['status-active'];
-      activeCount++;
-    } else if (s === 'upcoming') {
-      el.classList.add('status-upcoming');
-      el.textContent = t['status-upcoming'];
-    } else {
-      el.classList.add('status-done');
-      el.textContent = t['status-done'];
-    }
-  });
-  const ac = document.getElementById('activeCount');
-  if (ac) ac.textContent = activeCount;
-}
-
-function renderMonths(lang) {
-  const t = i18n[lang];
-  const currentMonth = new Date().getMonth() + 1;
-  [2,3,4,5,6,7,8].forEach((m, i) => {
-    const col = document.getElementById('mcol-' + m);
-    const hdr = document.getElementById('mhdr-' + m);
-    if (!col || !hdr) return;
-    const isCurrent = m === currentMonth;
-    col.classList.toggle('current-month', isCurrent);
-    hdr.textContent = t.months[i] + (isCurrent ? ' ← ' + t.today : '');
-  });
-}
-
-function setLang(lang) {
-  document.documentElement.lang = lang === 'jp' ? 'ja' : lang === 'zh' ? 'zh-TW' : 'en';
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active',
-      (lang === 'en' && btn.textContent === 'EN') ||
-      (lang === 'jp' && btn.textContent === '日本語') ||
-      (lang === 'zh' && btn.textContent === '繁中')
-    );
-  });
-  const t = i18n[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key] !== undefined) el.textContent = t[key];
-  });
-  renderStatus(lang);
-  renderMonths(lang);
-}
-
-// Init
-setLang('en');
+  // Scroll-reveal
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  sections.forEach(s => observer.observe(s));
 </script>
 </body>
 </html>
