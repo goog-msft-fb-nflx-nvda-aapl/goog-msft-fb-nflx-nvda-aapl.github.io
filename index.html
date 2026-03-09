@@ -346,10 +346,32 @@
   /* ─── JOBS ─────────────────────────────── */
   .jobs-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 16px;
   }
+  @media (max-width: 800px) { .jobs-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 600px) { .jobs-grid { grid-template-columns: 1fr; } }
+
+  .role-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    cursor: default;
+  }
+  .role-chip:hover {
+    border-color: var(--ut-orange);
+    box-shadow: 0 3px 12px rgba(191,87,0,0.1);
+    transform: translateY(-1px);
+  }
+  .role-icon { font-size: 15px; }
 
   .jobs-col-title {
     font-family: 'DM Mono', monospace;
@@ -491,13 +513,7 @@
       </div>
     </div>
     <div class="courses">
-      <div class="course-card completed" style="--accent-color: var(--accent-green)">
-        <div class="course-idx">①</div>
-        <div class="course-num" style="color:var(--accent-green)">AI394D</div>
-        <div class="course-name">Deep Learning</div>
-        <div class="course-prof">Prof. Philipp Krähenbühl</div>
-        <div class="grade-badge">A · 4.0 GPA</div>
-      </div>
+
       <div class="course-card" style="--accent-color: var(--ut-orange)">
         <div class="course-idx">②</div>
         <div class="course-num">AI391L</div>
@@ -622,13 +638,22 @@
     </div>
     <div class="jobs-grid">
       <div>
+        <div class="jobs-col-title">Target Positions</div>
+        <div class="location-chips" style="flex-direction:column;">
+          <div class="role-chip"><span class="role-icon">🧠</span> ML Engineer</div>
+          <div class="role-chip"><span class="role-icon">📊</span> Data Scientist</div>
+          <div class="role-chip"><span class="role-icon">🔬</span> Research Engineer</div>
+          <div class="role-chip"><span class="role-icon">💻</span> Software Engineer</div>
+          <div class="role-chip"><span class="role-icon">🛠️</span> Forward Deployed Engineer</div>
+        </div>
+      </div>
+      <div>
         <div class="jobs-col-title">Target Locations</div>
         <div class="location-chips">
           <div class="loc-chip" style="background:rgba(11,45,110,0.07);border-color:rgba(11,45,110,0.25);color:#0b2d6e;font-weight:600;"><span class="loc-flag">🇺🇸</span> United States</div>
           <div class="loc-chip"><span class="loc-flag">🇨🇦</span> Canada</div>
           <div class="loc-chip"><span class="loc-flag">🇬🇧</span> United Kingdom</div>
-          <div class="loc-chip"><span class="loc-flag">🇮🇪</span> Ireland</div>
-          <div class="loc-chip"><span class="loc-flag">🇯🇵</span> Japan</div>
+          <div class="loc-chip"><span class="loc-flag">🇯🇵</span> Tokyo</div>
           <div class="loc-chip"><span class="loc-flag">🇸🇬</span> Singapore</div>
         </div>
       </div>
